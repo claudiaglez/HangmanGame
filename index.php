@@ -1,5 +1,5 @@
 <?php
-include ('words.php');
+include('game.php');
 ?>
 
 <!DOCTYPE html>
@@ -10,8 +10,35 @@ include ('words.php');
     <title>Hangman Game</title>
 </head>
 <body>
-    <?php
-    print_r(implode(' ', $espacios));
+
+<div>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <?php
+        foreach ($teclado as $letra) {
+            echo '<button type="submit" name="letra" value="' . $letra . '">' . $letra . '</button>';
+        }
+        ?>
+    </form>
+</div>
+
+<div>
+    <p>Palabra en progreso: <?php echo implode(" ", $_SESSION['espacios']); ?></p>
+</div>
+
+<?php
+
+// Muestra el contador de fallos
+echo "<p>Contador de fallos: {$_SESSION['fallos']}</p>";
+
+    // Verifica si todas las letras han sido adivinadas
+    if (array_search('_', $_SESSION['espacios']) === false) {
+        echo '<p>¡Has adivinado la palabra! <a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Reiniciar</a></p>';
+        // Reiniciar el juego
+        session_unset();
+        session_destroy();
+    }
     ?>
 </body>
 </html>
+
+
