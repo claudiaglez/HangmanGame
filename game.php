@@ -4,11 +4,17 @@ session_start();
 // Verifica si se debe reiniciar el juego
 if (!isset($_SESSION['chosenWord']) || array_search('_', $_SESSION['espacios']) === false) {
     $_SESSION['wordList'] = [
-        "arbol",
-        "casa",
-        "patata",
-        "gatito",
-        "aeropuerto",
+        "croacia",
+        "alemania",
+        "francia",
+        "italia",
+        "colombia",
+        "chile",
+        "argentina",
+        "venezuela",
+        "polonia",
+        "brasil",
+        "suecia",
     ];
 
     $_SESSION['chosenWord'] = $_SESSION['wordList'][array_rand($_SESSION['wordList'])];
@@ -29,17 +35,17 @@ $keyboard= range('A', 'Z');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letter'])) {
     $chosenLetter = strtoupper($_POST['letter']);
-    echo "letter elegida: $chosenLetter<br>";
+ 
 
     if (in_array($chosenLetter, $_SESSION['characters'])) {
-        echo "La letter está en la palabra<br>";
+      
         for ($i = 0; $i < count($_SESSION['characters']); $i++) {
             if ($_SESSION['characters'][$i] === $chosenLetter) {
                 $_SESSION['espacios'][$i] = $chosenLetter;
             }
         }
     } else {
-        echo "La letter NO está en la palabra<br>";
+      ;
         $_SESSION['mistakes']++;
 
         // Puedes ajustar el número 6 según el número máximo de mistakes antes de reiniciar el juego

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap');
+
+body {
+    background-image: url(./src/images/barcos-nutshell-lupa-mapas.jpg);
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+.containerGame {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    background-color: peru;
+    margin-top: 10%;
+}
+
+.containerKeyboard {
+    height: 20px;
+    width: 323px;
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.containerWord {
+    height: 40px;
+    padding: 20px;
+ 
+}
+
+.containerMistakes {
+    padding: 20px;
+}
+
+.wordCorrect {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    background-color: peru;
+    margin-top: 5%;
+}
