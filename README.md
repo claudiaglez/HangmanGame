@@ -4,7 +4,9 @@ The player must guess the country, for this he has 6 attempts, if not, he will l
 
 # How to install
 
-You could clone this repository and then, install XAMPP (Windows) or MAMP (Mac) to visualize it. Enjoy!
+You could clone this repository
+https://github.com/claudiaglez/HangmanGame.git
+and then, install XAMPP (Windows) or MAMP (Mac) to visualize it. Enjoy!
 
 # Languages
 
