@@ -15,35 +15,35 @@ if (!isset($_SESSION['chosenWord']) || array_search('_', $_SESSION['espacios']) 
     $_SESSION['characters'] = str_split(strtoupper($_SESSION['chosenWord']));
     $_SESSION['espacios'] = [];
     $_SESSION['espacios'] = array_fill(0, count($_SESSION['characters']), '_');
-    if (!isset($_SESSION['fallos'])) {
-        $_SESSION['fallos'] = 0;
+   if (!isset($_SESSION['mistakes'])) {
+        $_SESSION['mistakes'] = 0;
     } else {
-        // Si ya existe, incrementa el contador de fallos para evitar que comience en 1
-        $_SESSION['fallos']++;
+        // Si ya existe, incrementa el contador de mistakes para evitar que comience en 1
+        $_SESSION['mistakes']++;
     }
     
 }
 
 
-$teclado = range('A', 'Z');
+$keyboard= range('A', 'Z');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letra'])) {
-    $letraElegida = strtoupper($_POST['letra']);
-    echo "Letra elegida: $letraElegida<br>";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letter'])) {
+    $chosenLetter = strtoupper($_POST['letter']);
+    echo "letter elegida: $chosenLetter<br>";
 
-    if (in_array($letraElegida, $_SESSION['characters'])) {
-        echo "La letra está en la palabra<br>";
+    if (in_array($chosenLetter, $_SESSION['characters'])) {
+        echo "La letter está en la palabra<br>";
         for ($i = 0; $i < count($_SESSION['characters']); $i++) {
-            if ($_SESSION['characters'][$i] === $letraElegida) {
-                $_SESSION['espacios'][$i] = $letraElegida;
+            if ($_SESSION['characters'][$i] === $chosenLetter) {
+                $_SESSION['espacios'][$i] = $chosenLetter;
             }
         }
     } else {
-        echo "La letra NO está en la palabra<br>";
-        $_SESSION['fallos']++;
+        echo "La letter NO está en la palabra<br>";
+        $_SESSION['mistakes']++;
 
-        // Puedes ajustar el número 6 según el número máximo de fallos antes de reiniciar el juego
-        if ($_SESSION['fallos'] >= 6) {
+        // Puedes ajustar el número 6 según el número máximo de mistakes antes de reiniciar el juego
+        if ($_SESSION['mistakes'] >= 6) {
             // El jugador ha perdido, puedes realizar acciones adicionales aquí
             echo "¡Has perdido!";
             // Reiniciar el juego

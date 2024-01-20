@@ -14,8 +14,8 @@ include('game.php');
 <div>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <?php
-        foreach ($teclado as $letra) {
-            echo '<button type="submit" name="letra" value="' . $letra . '">' . $letra . '</button>';
+        foreach ($keyboard as $letter) {
+            echo '<button type="submit" name="letter" value="' . $letter . '">' . $letter . '</button>';
         }
         ?>
     </form>
@@ -26,9 +26,7 @@ include('game.php');
 </div>
 
 
-
-// Muestra el contador de fallos
-<p>Contador de fallos: <?php echo isset($_SESSION['fallos']) ? $_SESSION['fallos'] : 0; ?></p>
+<p>Contador de fallos: <?php echo isset($_SESSION['mistakes']) ? $_SESSION['mistakes'] : 0; ?></p>
 <?php
     // Verifica si todas las letras han sido adivinadas
     if (array_search('_', $_SESSION['espacios']) === false) {
