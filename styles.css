@@ -39,3 +39,11 @@ body {
     background-color: peru;
     margin-top: 5%;
 }
+
+.wordMistaken {
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    background-color: peru;
+    margin-top: 5%;
+}

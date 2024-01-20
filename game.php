@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letter'])) {
         // Puedes ajustar el número 6 según el número máximo de mistakes antes de reiniciar el juego
         if ($_SESSION['mistakes'] >= 6) {
             // El jugador ha perdido, puedes realizar acciones adicionales aquí
-            echo "¡Has perdido!";
+            echo '<p class="wordMistaken">¡Has perdido!</p>';
             // Reiniciar el juego
             session_unset();
             session_destroy();
