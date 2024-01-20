@@ -8,7 +8,7 @@ You could clone this repository and then, install XAMPP (Windows) or MAMP (Mac) 
 
 #Technologies
 
-(https://skillicons.dev/icons?i=html,css,php)
+[![My Skills](https://skillicons.dev/icons?i=html,css,php)](https://skillicons.dev)
 
 # Credits
 
