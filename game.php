@@ -13,9 +13,17 @@ if (!isset($_SESSION['chosenWord']) || array_search('_', $_SESSION['espacios']) 
 
     $_SESSION['chosenWord'] = $_SESSION['wordList'][array_rand($_SESSION['wordList'])];
     $_SESSION['characters'] = str_split(strtoupper($_SESSION['chosenWord']));
+    $_SESSION['espacios'] = [];
     $_SESSION['espacios'] = array_fill(0, count($_SESSION['characters']), '_');
-    $_SESSION['fallos'] = 0;  // Inicializa el contador de fallos
+    if (!isset($_SESSION['fallos'])) {
+        $_SESSION['fallos'] = 0;
+    } else {
+        // Si ya existe, incrementa el contador de fallos para evitar que comience en 1
+        $_SESSION['fallos']++;
+    }
+    
 }
+
 
 $teclado = range('A', 'Z');
 
@@ -44,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letra'])) {
         }
     }
 
-    var_dump($_SESSION); // Mostrará el contenido de la sesión
+
 }
 ?>
 

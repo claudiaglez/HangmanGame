@@ -22,14 +22,14 @@ include('game.php');
 </div>
 
 <div>
-    <p>Palabra en progreso: <?php echo implode(" ", $_SESSION['espacios']); ?></p>
+<p>Palabra en progreso: <?php echo isset($_SESSION['espacios']) ? implode(" ", $_SESSION['espacios']) : ''; ?></p>
 </div>
 
-<?php
+
 
 // Muestra el contador de fallos
-echo "<p>Contador de fallos: {$_SESSION['fallos']}</p>";
-
+<p>Contador de fallos: <?php echo isset($_SESSION['fallos']) ? $_SESSION['fallos'] : 0; ?></p>
+<?php
     // Verifica si todas las letras han sido adivinadas
     if (array_search('_', $_SESSION['espacios']) === false) {
         echo '<p>¡Has adivinado la palabra! <a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Reiniciar</a></p>';
