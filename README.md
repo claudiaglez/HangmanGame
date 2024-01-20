@@ -6,7 +6,7 @@ The player must guess the country, for this he has 6 attempts, if not, he will l
 
 You could clone this repository and then, install XAMPP (Windows) or MAMP (Mac) to visualize it. Enjoy!
 
-#Technologies
+# Languages
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,php)](https://skillicons.dev)
 
