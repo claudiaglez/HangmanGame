@@ -15,13 +15,13 @@ include('game.php');
 
 <h1>The Travel Hangman Game</h1>
 
-<h3>Piensa en un país...</h3>
+<h3>Piensa en un país... ¡sólo tienes 6 intentos para adivinarlo!</h3>
 
 <div class="containerKeyboard">
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <?php
         foreach ($keyboard as $letter) {
-            echo '<button type="submit" name="letter" value="' . $letter . '">' . $letter . '</button>';
+            echo '<button class ="btnKeyboard" type="submit" name="letter" value="' . $letter . '">' . $letter . '</button>';
         }
         ?>
     </form>
@@ -34,6 +34,8 @@ include('game.php');
 <div class="containerMistakes">
 <p>Contador de fallos: <?php echo isset($_SESSION['mistakes']) ? $_SESSION['mistakes'] : 0; ?></p>
 </div>
+
+
 </div>
 <?php
     if (array_search('_', $_SESSION['espacios']) === false) {

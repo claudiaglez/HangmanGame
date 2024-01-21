@@ -22,11 +22,17 @@ body {
     
 }
 
+.btnKeyboard {
+    padding: 2%;
+    background-color: white;
+    color: peru;
+}
+
 .containerWord {
     height: 40px;
     padding: 20px;
- 
 }
+
 
 .containerMistakes {
     padding: 20px;

@@ -47,15 +47,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letter'])) {
       ;
         $_SESSION['mistakes']++;
         if ($_SESSION['mistakes'] >= 6) {
-            echo '<p class="wordMistaken">¡Has perdido!</p>';
+            echo '<p class="wordMistaken">¡Has perdido!<a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Reiniciar</a></p>';
 
             session_unset();
             session_destroy();
         }
+
+           
+        }
     }
 
 
-}
+
 ?>
 
 
