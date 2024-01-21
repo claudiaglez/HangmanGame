@@ -36,10 +36,8 @@ include('game.php');
 </div>
 </div>
 <?php
-    // Verifica si todas las letras han sido adivinadas
     if (array_search('_', $_SESSION['espacios']) === false) {
-        echo '<p class="wordCorrect">¡Has adivinado la palabra! <a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Reiniciar</a></p>';
-        // Reiniciar el juego
+        echo '<p class="wordCorrect">¡Has adivinado la palabra! <a href="' . htmlspecialchars($_SERVER["PHP_SELF"]) . '">Reiniciar</a></p>';  
         session_unset();
         session_destroy();
     }

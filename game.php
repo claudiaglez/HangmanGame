@@ -24,7 +24,6 @@ if (!isset($_SESSION['chosenWord']) || array_search('_', $_SESSION['espacios']) 
    if (!isset($_SESSION['mistakes'])) {
         $_SESSION['mistakes'] = 0;
     } else {
-        // Si ya existe, incrementa el contador de mistakes para evitar que comience en 1
         $_SESSION['mistakes']++;
     }
     
@@ -47,12 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['letter'])) {
     } else {
       ;
         $_SESSION['mistakes']++;
-
-        // Puedes ajustar el número 6 según el número máximo de mistakes antes de reiniciar el juego
         if ($_SESSION['mistakes'] >= 6) {
-            // El jugador ha perdido, puedes realizar acciones adicionales aquí
             echo '<p class="wordMistaken">¡Has perdido!</p>';
-            // Reiniciar el juego
+
             session_unset();
             session_destroy();
         }
